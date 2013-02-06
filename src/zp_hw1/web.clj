@@ -3,14 +3,15 @@
   (:use [clojure.string :only [split]])
   (:use [zp-hw1.mats :only [addz subz multz]]))
 
+(defn parseargs [req]
+	(map read-string (split ((split (req :query-string) #"=") 1) #",")))
+
 (defn respond [req]
-	(let
-		[args (map read-string (split ((split (req :query-string) #"=") 1) #","))]
-			(case (req :uri)
-				"" "THIS IS NOT A HOMEPAGE!"
-				"/add" (str (apply addz args))
-				"/subtract" (str (apply subz args))
-				"/multiply" (str (apply multz args))))
+	(case (req :uri)
+		"/" "THIS IS NOT A HOMEPAGE!"
+		"/add" (str (apply addz (parseargs req)))
+		"/subtract" (str (apply subz (parseargs req)))
+		"/multiply" (str (apply multz (parseargs req))))
 )
 
 (defn app [req]
