@@ -1,13 +1,14 @@
 # zp_hw1
 
-A Clojure library designed to ... well, that part is up to you.
+Clojure brownbag homework.
+
+Assignment 1, the calculator
+Responds to:
+ * /add?args=1,2,-30,5,
+ * /subtract?args=30,5,8
+ * /multiply?args=20,4,-1
+...and the like
 
 ## Usage
 
-FIXME
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+Fire it up by pushing to Heroku.  The Procfile and project.clj contain most of the config information relevent to running.
