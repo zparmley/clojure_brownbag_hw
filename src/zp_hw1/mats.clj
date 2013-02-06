@@ -2,30 +2,18 @@
 
 (defn addz
 	"Sum a list of numbers"
-	([x]
-		x)
-	([x y]
-		(+ x y))
-	([x y & more] 
-		(reduce addz (addz x y) more))
+	[& more] 
+		(reduce + more)
 )
 
 (defn subz
-	"Subtract a list of numbers in order"
-	([x]
-		x)
-	([x y]
-		(- x y))
-	([x y & more]
-		(reduce subz (subz x y) more))
+	"Subtract through a list of numbers, begining with value 0"
+	[& more]
+	(reduce - more)
 )
 
 (defn multz
-	"Multiply through a list of numbers"
-	([x]
-		x)
-	([x y]
-		(* x y))
-	([x y & more]
-		(reduce multz (multz x y) more))
+	"Multiply up a list of numbers"
+	[& more]
+	(reduce * 1 more)
 )

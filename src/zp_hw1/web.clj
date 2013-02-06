@@ -1,5 +1,6 @@
 (ns zp-hw1.web
   (:use [ring.adapter.jetty :only [run-jetty]])
+  (:use [ring.middleware.reload :only [wrap-reload]])
   (:use [clojure.string :only [split]])
   (:use [zp-hw1.mats :only [addz subz multz]]))
 
@@ -21,4 +22,4 @@
 
 
 (defn -main [port]
-  (run-jetty app {:port (Integer. port)}))
+  (run-jetty (wrap-reload app) {:port (Integer. port)}))
